@@ -2,6 +2,7 @@ const expect  = require('chai').expect;
 const assert = require('chai').assert;
 const BMI = require('../BMI.js');
 
+//0-150
 describe('Age validation', function() {
     const assertions = [
       { age: '-20', result: false,message: "Invalid Partitioning value"},
@@ -28,7 +29,7 @@ describe('Age validation', function() {
     })
   })
 
-
+//10to300
 describe('Height Validation', function() {
     const assertions = [
         { height: '0', result: false,message: "Invalid partitioning value" },
@@ -54,13 +55,13 @@ describe('Height Validation', function() {
   })
 
 
-
+//0to700
 describe('Weight validation', function() {
     const assertions = [
         { weight: '-20', result: false,message: "Invalid partitioning value" },
-        { weight: '-1', result: false,message: "Lower boundary integer over limit" },
+        { weight: '-1', result: false,message: "Lower boundary integer under limit" },
         { weight: '0', result: true,message: "Lower boundary integer limit" },
-        { weight: '1', result: true,message: "Lower boundary integer under limit" },
+        { weight: '1', result: true,message: "Lower boundary integer over limit" },
         { weight: '40', result: true,message: "Valid partitioning value" },
         { weight: '100', result: true,message: "Valid partitioning value" },
         { weight: '701', result: false,message: "Upper boundary integer over limit" },
@@ -78,6 +79,7 @@ describe('Weight validation', function() {
     })
   })
 
+  
   describe('BMI calculation', function() {
     const assertions = [
       {height:180, weight:65, result:20.1},

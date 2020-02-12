@@ -9,19 +9,19 @@ const rl = readline.createInterface({
 
 
 rl.question('Welcome to BMI calculator. How old are you?(0-150)', (answer) => {
-  var x=ageValidation(answer),w,h;
+  var x=BMI.ageValidation(answer),w,h;
   var weight,height;
   if (x==true){
     rl.question('How tall are you?', (answer1) => {
       height=answer1;
-      h=heightValidation(height);
+      h=BMI.heightValidation(height);
       if (h==true){
         rl.question('How about your weight?', (answer2) => {
           weight=answer2;
-          w= weightValidation(weight);
+          w= BMI.weightValidation(weight);
           if(w==true){
-            bmi=computeBMI(height,weight);
-            BMImeaning(bmi);
+            bmi=BMI.computeBMI(height,weight);
+            BMI.BMImeaning(bmi);
           }else return false;   
         }); 
       }else return false;
